@@ -8,7 +8,7 @@ const Group = ({ name, description, image }: IProps) => {
     <div className="sm:flex py-2">
       <div className="mb-4 flex-shrink-0 sm:mb-0 sm:mr-4">
       <img
-        className="inline-block h-14 w-14 rounded-full"
+        className="inline-block h-14 w-14 rounded-full border border-slate-300 dark:border-slate-900 p-1"
         src={image}
         alt={name}
       />

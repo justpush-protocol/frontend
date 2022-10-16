@@ -8,9 +8,10 @@ import {
   SunIcon,
   MoonIcon,
   WalletIcon,
+  Cog8ToothIcon,
 } from "@heroicons/react/24/outline";
 import { Dialog, Menu, Transition } from "@headlessui/react";
-import React, { Fragment, useState } from "react";
+import { Fragment, useState } from "react";
 import { Navigate, Outlet, useLocation, useNavigate } from "react-router-dom";
 import { RootState } from "../redux/store";
 import { useDispatch, useSelector } from "react-redux";
@@ -44,11 +45,17 @@ const Container = () => {
       position: "top",
     },
     {
+      name: "Manage Groups",
+      route: "/manage-groups",
+      icon: Cog8ToothIcon,
+      position: "bottom",
+    },
+    {
       name: "Create Group",
       route: "/create-group",
       icon: PlusCircleIcon,
       position: "bottom",
-    },
+    }
   ];
 
   const userNavigation = [
@@ -66,8 +73,8 @@ const Container = () => {
 
   const NavigationItems = () => {
     return (
-      <div className="py-5 space-y-10">
-        <div>
+      <div className="py-5 space-y-10 flex flex-col h-full">
+        <div className="flex-1">
           {navigation
             .filter((item) => item.position == "top")
             .map((item) => (
@@ -77,7 +84,7 @@ const Container = () => {
                 className={classNames(
                   item.route === pathname
                     ? "bg-blue-100 text-slate-900 dark:bg-slate-800 dark:text-slate-300"
-                    : "text-slate-600 dark:text-slate-300 hover:bg-zinc-50 dark:hover:bg-slate-800 hover:text-slate-900 dark:hover:text-white",
+                    : "text-slate-600 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-800 hover:text-slate-900 dark:hover:text-white",
                   "group flex items-center px-2 py-2 text-base font-medium rounded-md"
                 )}
               >
@@ -94,7 +101,7 @@ const Container = () => {
               </a>
             ))}
         </div>
-        <div className="space-y-1">
+        <div className="py-5">
           <h3
             className="px-3 text-xs font-semibold text-slate-500 uppercase tracking-wider"
             id="projects-headline"
@@ -111,7 +118,7 @@ const Container = () => {
                   className={classNames(
                     item.route === pathname
                       ? "bg-blue-100 text-slate-900 dark:bg-slate-800 dark:text-slate-300"
-                      : "text-slate-600 dark:text-slate-300 hover:bg-zinc-50 dark:hover:bg-slate-800 hover:text-slate-900 dark:hover:text-white",
+                      : "text-slate-600 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-800 hover:text-slate-900 dark:hover:text-white",
                     "group flex items-center px-2 py-2 text-base font-medium rounded-md"
                   )}
                 >
@@ -135,7 +142,7 @@ const Container = () => {
 
   return (
     <div className={dark ? "dark" : ""}>
-      <div className="bg-gray-100 dark:bg-slate-900 flex flex-col h-screen">
+      <div className="bg-gray-100 dark:bg-slate-900 flex flex-col h-screen overflow-auto">
         <Transition.Root show={sidebarOpen} as={Fragment}>
           <Dialog
             as="div"
@@ -154,7 +161,7 @@ const Container = () => {
               leaveFrom="opacity-100"
               leaveTo="opacity-0"
             >
-              <Dialog.Overlay className="fixed inset-0 bg-zinc-600 bg-opacity-75" />
+              <Dialog.Overlay className="fixed inset-0 bg-slate-600 bg-opacity-75" />
             </Transition.Child>
             <Transition.Child
               as={Fragment}
@@ -193,7 +200,7 @@ const Container = () => {
                   <img
                     className="h-16 w-auto"
                     src={`/logo-${dark? 'dark' : 'light'}.png`}
-                    alt="JustPush"
+                    alt=""
                   />
                 </div>
                 <div className="mt-5 flex-1 h-0 overflow-y-auto">
@@ -217,7 +224,7 @@ const Container = () => {
               <img
                 className="h-16 w-auto"
                 src={`/logo-${dark? 'dark' : 'light'}.png`}
-                alt="JustPush"
+                alt=""
               />
             </div>
             <div className="mt-5 flex-grow flex flex-col">
@@ -247,7 +254,7 @@ const Container = () => {
                 <button
                   onClick={() => dispatch(changeTheme())}
                   type="button"
-                  className="bg-zinc-100 dark:bg-slate-800 p-1 rounded-full text-slate-400 dark:text-slate-300 hover:text-slate-500 dark:hover:text-slate-100 focus:outline-none"
+                  className="bg-slate-100 dark:bg-slate-800 p-1 rounded-full text-slate-400 dark:text-slate-300 hover:text-slate-500 dark:hover:text-slate-100 focus:outline-none"
                 >
                   <span className="sr-only">Change theme</span>
                   {dark ? (
@@ -260,7 +267,7 @@ const Container = () => {
                 {/* Profile dropdown */}
                 <Menu as="div" className="ml-3 relative">
                   <div>
-                    <Menu.Button className="bg-zinc-800 dark:bg-zinc-200 text-slate-100 dark:text-slate-800 flex items-center text-xs rounded-full border dark:border-zinc-200 border-zinc-900 px-3 py-2">
+                    <Menu.Button className="bg-slate-800 dark:bg-slate-800 text-slate-100 flex items-center text-xs rounded-full border border-slate-900 px-3 py-2">
                       <span className="sr-only">Open user menu</span>
                       <div className="hidden md:block">0xa1b2...c3d4e5</div>
                       <WalletIcon className="md:hidden h-6 w-6"/>
@@ -282,7 +289,7 @@ const Container = () => {
                             <a
                               href={item.href}
                               className={classNames(
-                                active ? "bg-zinc-100" : "",
+                                active ? "bg-slate-100" : "",
                                 "block px-4 py-2 text-sm text-slate-700"
                               )}
                             >

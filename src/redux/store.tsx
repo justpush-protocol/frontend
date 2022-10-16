@@ -1,11 +1,18 @@
 import { configureStore } from '@reduxjs/toolkit'
 import appReducer from './appSlice'
+import { justPushApi } from '../api'
+import { setupListeners } from '@reduxjs/toolkit/query'
 
 export const store = configureStore({
   reducer: {
     app: appReducer,
+    justPushApi: justPushApi.reducer,
   },
+  middleware: (getDefaultMiddleware) =>
+    getDefaultMiddleware().concat(justPushApi.middleware),
 })
+
+setupListeners(store.dispatch)
 
 // Infer the `RootState` and `AppDispatch` types from the store itself
 export type RootState = ReturnType<typeof store.getState>

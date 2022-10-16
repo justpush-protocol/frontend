@@ -19,7 +19,7 @@ const Notification = ({ group, title, content, url }: IProps) => {
                 {group.name}
               </p>
             <img
-              className="h-12 w-12 rounded-full"
+              className="h-12 w-12 rounded-full border border-slate-300 dark:border-slate-900 p-1"
               src={group.logo}
               alt=""
             />
