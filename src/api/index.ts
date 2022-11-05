@@ -10,20 +10,40 @@ import {
   AddNotificationRequest,
   UnsubscribeResponse,
   UnsubscribeRequest,
-} from "@justlabs-platform/just-push-api-types";
+  ListGroupResponse,
+  ListGroupRequest,
+} from "@justpush/api-types";
 
 export const justPushApi = createApi({
   reducerPath: "justPushApi",
   baseQuery: fetchBaseQuery({ baseUrl: process.env.REACT_APP_API_URL }),
   endpoints: (builder) => ({
-    getNotifications: builder.mutation<
+    getNotifications: builder.query<
       GetNotificationsResponse,
-      { request: GetNotificationsRequest }
+      { request: GetNotificationsRequest; publicKey: string }
     >({
-      query: ({ request }) => ({
-        url: "/notification/get",
+      query: ({ request, publicKey }) => ({
+        url: "v1/unsigned/notification/list",
         method: "POST",
         body: request,
+        headers: {
+          "Content-Type": "application/json",
+          "x-public-key": publicKey,
+        },
+      }),
+    }),
+    listGroups: builder.query<
+      ListGroupResponse,
+      { request: ListGroupRequest; publicKey: string }
+    >({
+      query: ({ request, publicKey }) => ({
+        url: "v1/unsigned/group/list",
+        method: "POST",
+        body: request,
+        headers: {
+          "Content-Type": "application/json",
+          "x-public-key": publicKey,
+        },
       }),
     }),
     addNotification: builder.mutation<
@@ -31,7 +51,7 @@ export const justPushApi = createApi({
       { request: AddNotificationRequest; signature: string; publicKey: string }
     >({
       query: ({ request, signature, publicKey }) => ({
-        url: "/notification/new",
+        url: "v1/signed/notification/new",
         method: "POST",
         body: request,
         headers: {
@@ -43,15 +63,14 @@ export const justPushApi = createApi({
     }),
     addGroup: builder.mutation<
       AddGroupResponse,
-      { request: AddGroupRequest; signature: string; publicKey: string }
+      { request: AddGroupRequest; publicKey: string }
     >({
-      query: ({ request, signature, publicKey }) => ({
-        url: "/group/new",
+      query: ({ request, publicKey }) => ({
+        url: "v1/unsigned/group/new",
         method: "POST",
         body: request,
         headers: {
           "Content-Type": "application/json",
-          "x-signature": signature,
           "x-public-key": publicKey,
         },
       }),
@@ -61,7 +80,7 @@ export const justPushApi = createApi({
       { request: SubscribeRequest; signature: string; publicKey: string }
     >({
       query: ({ request, signature, publicKey }) => ({
-        url: "/group/new",
+        url: "v1/signed/group/subscribe",
         method: "POST",
         body: request,
         headers: {
@@ -76,7 +95,7 @@ export const justPushApi = createApi({
       { request: UnsubscribeRequest; signature: string; publicKey: string }
     >({
       query: ({ request, signature, publicKey }) => ({
-        url: "/group/new",
+        url: "v1/signed/group/unsubscribe",
         method: "POST",
         body: request,
         headers: {
@@ -90,7 +109,8 @@ export const justPushApi = createApi({
 });
 
 export const {
-  useGetNotificationsMutation,
+  useGetNotificationsQuery,
+  useListGroupsQuery,
   useAddNotificationMutation,
   useAddGroupMutation,
   useSubscribeMutation,
