@@ -1,11 +1,12 @@
 {
-  "name": "justpush-frontend",
-  "version": "0.1.0",
+  "name": "@justpush/frontend",
+  "version": "0.1.0.alpha.1",
   "private": true,
   "dependencies": {
     "@headlessui/react": "^1.7.3",
     "@heroicons/react": "^2.0.11",
-    "@justlabs-platform/just-push-api-types": "/Users/irshad/trn/workspace/node/packages/api-types",
+    "@justpush/contracts": "0.1.0-alpha.1",
+    "@justpush/api-types": "0.1.0-alpha.1",
     "@reduxjs/toolkit": "^1.8.5",
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.4.0",
@@ -22,6 +23,7 @@
     "react-scripts": "5.0.1",
     "react-toastify": "^9.0.8",
     "typescript": "^4.8.4",
+    "uuid": "^9.0.0",
     "web-vitals": "^2.1.4"
   },
   "scripts": {
@@ -49,6 +51,7 @@
     ]
   },
   "devDependencies": {
+    "@types/uuid": "^8.3.4",
     "autoprefixer": "^10.4.12",
     "postcss": "^8.4.17",
     "tailwindcss": "^3.1.8"

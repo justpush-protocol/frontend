@@ -1542,8 +1542,17 @@
     "@jridgewell/resolve-uri" "^3.0.3"
     "@jridgewell/sourcemap-codec" "^1.4.10"
 
-"@justlabs-platform/just-push-api-types@file:../node/packages/api-types":
-  version "1.0.0"
+"@justpush/api-types@0.1.0-alpha.1":
+  version "0.1.0-alpha.1"
+  resolved "https://registry.yarnpkg.com/@justpush/api-types/-/api-types-0.1.0-alpha.1.tgz#1707f839635073620902f64d3f532921af5a98c6"
+  integrity sha512-KueLbwBWbWNe7iC/dHmH+POo6SV7+ZHo7ziRHI78GhBO0mdrkIr+W393SWC0j9FxlUSgra5wZ2MXPYj4V4HPhw==
+
+"@justpush/contracts@0.1.0-alpha.1":
+  version "0.1.0-alpha.1"
+  resolved "https://registry.yarnpkg.com/@justpush/contracts/-/contracts-0.1.0-alpha.1.tgz#98e191689df75d7d21d64782727677efb1a0c24b"
+  integrity sha512-k9Zp25eF79AFErRwKf/ar/1lme7JYipwgH1YEgA5rdI8+Fe5OsWJ08fTM9eDl2+JpXnlo8HbwKlOotJK9fitGQ==
+  dependencies:
+    uuid "^9.0.0"
 
 "@leichtgewicht/ip-codec@^2.0.1":
   version "2.0.4"
@@ -2148,6 +2157,11 @@
   version "0.0.3"
   resolved "https://registry.yarnpkg.com/@types/use-sync-external-store/-/use-sync-external-store-0.0.3.tgz#b6725d5f4af24ace33b36fafd295136e75509f43"
   integrity sha512-EwmlvuaxPNej9+T4v5AuBPJa2x2UOJVdjCtDHgcDqitUeOtjnJKJ+apYjVcAoBEMjKW1VVFGZLUb5+qqa09XFA==
+
+"@types/uuid@^8.3.4":
+  version "8.3.4"
+  resolved "https://registry.yarnpkg.com/@types/uuid/-/uuid-8.3.4.tgz#bd86a43617df0594787d38b735f55c805becf1bc"
+  integrity sha512-c/I8ZRb51j+pYGAu5CrFMRxqZ2ke4y2grEBO5AUjgSkSk+qT2Ea+OdWElz/OiMf5MNpn2b17kuVBwZLQJXzihw==
 
 "@types/ws@^8.5.1":
   version "8.5.3"
@@ -8663,6 +8677,11 @@ uuid@^8.3.2:
   version "8.3.2"
   resolved "https://registry.yarnpkg.com/uuid/-/uuid-8.3.2.tgz#80d5b5ced271bb9af6c445f21a1a04c606cefbe2"
   integrity sha512-+NYs2QeMWy+GWFOEm9xnn6HCDp0l7QBD7ml8zLUmJ+93Q5NF0NocErnwkTkXVFNiX3/fpC6afS8Dhb/gz7R7eg==
+
+uuid@^9.0.0:
+  version "9.0.0"
+  resolved "https://registry.yarnpkg.com/uuid/-/uuid-9.0.0.tgz#592f550650024a38ceb0c562f2f6aa435761efb5"
+  integrity sha512-MXcSTerfPa4uqyzStbRoTgt5XIe3x5+42+q1sDuy3R5MDk66URdLMOZe5aPX/SQd+kuYAh0FdP/pO28IkQyTeg==
 
 v8-to-istanbul@^8.1.0:
   version "8.1.1"

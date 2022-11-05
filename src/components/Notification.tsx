@@ -6,10 +6,11 @@ interface IProps {
   url: string;
   group: {
     name: string;
-    logo: string;
+    image: string | null;
   };
 }
 const Notification = ({ group, title, content, url }: IProps) => {
+  console.log("group", group);
   return (
     <a href={url} className="block bg-slate-50 dark:bg-slate-700 rounded-lg hover:border dark:hover:border-slate-900">
       <div className="flex items-center px-2 py-2 lg:px-4 lg:py-4 sm:px-6">
@@ -20,7 +21,7 @@ const Notification = ({ group, title, content, url }: IProps) => {
               </p>
             <img
               className="h-12 w-12 rounded-full border border-slate-300 dark:border-slate-900 p-1"
-              src={group.logo}
+              src={group.image ? 'http://' + group.image : 'http://via.placeholder.com/60x60.png'}
               alt=""
             />
           </div>
