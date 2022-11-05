@@ -2,10 +2,12 @@ import { createSlice } from "@reduxjs/toolkit";
 
 export interface AppState {
   dark: boolean;
+  sidebarOpen: boolean;
 }
 
 const initialState: AppState = {
   dark: false,
+  sidebarOpen: false,
 };
 
 export const appSlice = createSlice({
@@ -15,6 +17,9 @@ export const appSlice = createSlice({
     changeTheme: (state) => {
       state.dark = !state.dark;
     },
+    toggleSidebar: (state) => {
+      state.sidebarOpen = !state.sidebarOpen;
+    },
     // incrementByAmount: (state, action: PayloadAction<number>) => {
     //     state.value += action.payload
     //   },
@@ -22,6 +27,6 @@ export const appSlice = createSlice({
 });
 
 // Action creators are generated for each case reducer function
-export const { changeTheme } = appSlice.actions;
+export const { changeTheme, toggleSidebar } = appSlice.actions;
 
 export default appSlice.reducer;
