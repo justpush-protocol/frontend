@@ -23,9 +23,9 @@ const ManagedGroup = ({ groupId, name, description, image }: IProps) => {
           <p className="mt-1">{description}</p>
         </div>
         <div className="w-3/6 xl:w-2/12 lg:w-1/12 text-sm">
-          <div className="bg-zinc-200 dark:bg-zinc-700 py-2 px-2 rounded-md text-zinc-800 dark:text-zinc-200">
+          {/* <div className="bg-zinc-200 dark:bg-zinc-700 py-2 px-2 rounded-md text-zinc-800 dark:text-zinc-200">
             100 Subscribers
-          </div>
+          </div> */}
         </div>
       </div>
     </div>
