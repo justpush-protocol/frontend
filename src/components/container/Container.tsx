@@ -47,7 +47,6 @@ const Container = () => {
   };
 
   useEffect(() => {
-    setContentLoading(true);
     setError(null);
   }, [pathname]);
 

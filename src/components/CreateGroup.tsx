@@ -7,7 +7,8 @@ import { toast } from "react-toastify";
 import { useContract } from "../hooks/useContract";
 import { useSelector } from "react-redux";
 import { RootState } from "../redux/store";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useOutletContext } from "react-router-dom";
+import { OutLetContextType } from "./container/Container";
 
 type Inputs = {
   name: string;
@@ -23,6 +24,7 @@ const CreateGroup = () => {
   const [createGroupActionLoading, setCreateGroupActionLoading] =
     useState(false);
   const { contract } = useContract();
+  const { setContentLoading, setError } = useOutletContext<OutLetContextType>();
 
   const {
     register,
@@ -34,7 +36,11 @@ const CreateGroup = () => {
     useAddGroupMutation();
 
   const navigate = useNavigate();
-
+  
+  useEffect(() => {
+    setContentLoading(false);
+  }, []);
+  
   const onSubmit: SubmitHandler<Inputs> = async (data) => {
     setCreateGroupActionLoading(true);
     if (!contract) {
