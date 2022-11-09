@@ -5,8 +5,8 @@
   "dependencies": {
     "@headlessui/react": "^1.7.3",
     "@heroicons/react": "^2.0.11",
-    "@justpush/contracts": "0.1.0-alpha.1",
     "@justpush/api-types": "0.1.0-alpha.1",
+    "@justpush/contracts": "^0.1.0-alpha.2",
     "@reduxjs/toolkit": "^1.8.5",
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.4.0",
