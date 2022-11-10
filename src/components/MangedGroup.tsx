@@ -1,4 +1,5 @@
 import SendNotificationForm from "./SendNotificationForm";
+import { handleUrl } from '../lib/url';
 
 interface IProps {
   groupId: string;
@@ -13,7 +14,7 @@ const ManagedGroup = ({ groupId, name, description, image }: IProps) => {
       <div className="mb-4 flex-shrink-0 sm:mb-0 sm:mr-4">
       <img
         className="inline-block h-14 w-14 rounded-full border border-slate-300 dark:border-slate-900 p-1"
-        src={'http://' + image}
+        src={handleUrl(image)}
         alt={name}
       />
       </div>

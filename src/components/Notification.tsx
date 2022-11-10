@@ -1,4 +1,5 @@
 import ChevronRightIcon from "@heroicons/react/24/outline/ChevronRightIcon";
+import { handleUrl } from '../lib/url';
 
 interface IProps {
   title: string;
@@ -12,7 +13,7 @@ interface IProps {
 const Notification = ({ group, title, content, url }: IProps) => {
   console.log("group", group);
   return (
-    <a href={url} className="block bg-slate-50 dark:bg-slate-700 rounded-lg hover:border dark:hover:border-slate-900">
+    <a href={handleUrl(url)} className="block bg-slate-50 dark:bg-slate-700 rounded-lg hover:border dark:hover:border-slate-900">
       <div className="flex items-center px-2 py-2 lg:px-4 lg:py-4 sm:px-6">
         <div className="min-w-0 flex-1 flex items-center sm:space-x-2 md:space-x-0">
           <div className="flex-shrink-0">
@@ -21,7 +22,7 @@ const Notification = ({ group, title, content, url }: IProps) => {
               </p>
             <img
               className="h-12 w-12 rounded-full border border-slate-300 dark:border-slate-900 p-1"
-              src={group.image ? 'http://' + group.image : 'http://via.placeholder.com/60x60.png'}
+              src={handleUrl(group.image || 'http://via.placeholder.com/60x60.png')}
               alt=""
             />
           </div>
