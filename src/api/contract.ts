@@ -1,7 +1,6 @@
 import JustPushV1 from '@justpush/contracts/build/contracts/JustPushV1.json';
 
-console.log("Using hardcoded shasta network. Change this in the code if you want to use mainnet");
-const network = "2";
+const network = "1";
 export class JustPushContract {
     private contract: any;
     private address = JustPushV1.networks[network].address;
